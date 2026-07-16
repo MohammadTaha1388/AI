@@ -12,9 +12,9 @@ Base.metadata.create_all(bind=engine)
 
 router = APIRouter()
 
-pwd_context = CryptContext(
-    schemes=["bcrypt"],
-    deprecated="auto"
+pwd_context.verify(
+    user.password[:72],
+    db_user.password
 )
 
 
@@ -43,7 +43,7 @@ def register(
         )
 
     hashed_password = pwd_context.hash(
-        user.password
+    user.password[:72]
     )
 
     new_user = User(
