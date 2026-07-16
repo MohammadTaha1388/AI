@@ -80,7 +80,10 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
         )
 
     return {
-        "message": "Login successful",
-        "user": {
-            "id": db_user.id,
-            "username": db_user
+    "message": "Login successful",
+    "user": {
+        "id": db_user.id,
+        "username": db_user.username,
+        "email": db_user.email
+    }
+    }
