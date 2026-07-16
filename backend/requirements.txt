@@ -7,3 +7,6 @@ passlib[bcrypt]
 python-dotenv
 pydantic
 email-validator
+sqlalchemy
+passlib[bcrypt]
+python-jose
